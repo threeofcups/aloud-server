@@ -15,6 +15,6 @@ const config = {
 const db = pgp(config);
 const query = promisify(db.query).bind(db);
 
-query('select * from users;').then(console.log(`Connected to aloud db`));
+db.connect().then(console.log('connected to aloud db'));
 
-exports.db = db;
+module.exports.query = query;
