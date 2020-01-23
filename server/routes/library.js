@@ -1,6 +1,9 @@
 // library routes
-const libRouter = (req, res) => {
-  console.log('quiet in the library please.')
-  res.send('easy listening!');
-}
-module.exports = libRouter;
+const express = require('express');
+const libraryRouter = express.Router();
+
+libraryRouter.get('/', (req, res) => {
+  res.send('quiet in the library please');
+});
+
+module.exports = libraryRouter;
