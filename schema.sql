@@ -121,6 +121,12 @@ insert into recordings(id_user, title, description, url_recording, published, sp
 values('1', 'oblivion', 'dream of the minds eye network of wormholes', 'https://www.epidemicsound.com/track/S03xNi2zfK', 'public', 'retsulc rats ralubolg sag dna kcor fo setom suoucipsnocni htrib tnemhsinotsa srats eht fo ecnenamrep', now());
 insert into recordings(id_user, title, description, url_recording, published, speech_to_text, created_at)
 values('2', 'clouds', 'Sea of Tranquility Sea of Tranquility emerged into consciousness', 'https://www.epidemicsound.com/track/gZp2yXNUEA', 'public', 'retsulc rats ralubolg sag dna kcor fo setom suoucipsnocni htrib tnemhsinotsa srats eht fo ecnenamrep', now());
+insert into recordings(id_user, title, description, url_recording, published, speech_to_text, created_at)
+values('3', 'poppies', 'a flowering plant in the subfamily papaveroideae of the family papaveraceae', 'https://www.epidemicsound.com/track/gZp2yXNUEA', 'public', 'retsulc rats ralubolg sag dna kcor fo setom suoucipsnocni htrib tnemhsinotsa srats eht fo ecnenamrep', now());
+insert into recordings(id_user, title, description, url_recording, published, speech_to_text, created_at)
+values('4', 'halo', 'sublime love', 'https://www.epidemicsound.com/track/S03xNi2zfK', 'public', 'retsulc rats ralubolg sag dna kcor fo setom suoucipsnocni htrib tnemhsinotsa srats eht fo ecnenamrep', now());
+insert into recordings(id_user, title, description, url_recording, published, speech_to_text, created_at)
+values('6', 'nautical twilight', 'geometric center of the Sun is 12 degrees below the horizon', 'https://www.epidemicsound.com/track/gZp2yXNUEA', 'public', 'retsulc rats ralubolg sag dna kcor fo setom suoucipsnocni htrib tnemhsinotsa srats eht fo ecnenamrep', now());
 
 
 -- collections_recordings
