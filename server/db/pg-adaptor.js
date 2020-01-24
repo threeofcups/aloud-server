@@ -21,4 +21,4 @@ const query = promisify(db.query).bind(db);
 
 db.connect().then(console.log(`connected to ${db_name}`));
 
-module.exports.query = query;
+module.exports.db = db;
