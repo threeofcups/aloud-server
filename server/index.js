@@ -39,5 +39,5 @@ app.use(
 //app.get('/', (req, res) => res.send('hello world'));
 app.listen(PORT, () => {
   console.log(`Express app is listening on port ${PORT}!🛸`)
-  console.log('Running a GraphQL API server at http://localhost:3000/graphql');
+  console.log('Running server at http://localhost:3000');
 });

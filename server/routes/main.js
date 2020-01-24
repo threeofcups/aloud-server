@@ -8,7 +8,6 @@ const mainRouter = express.Router();
 
 mainRouter.get('/', (req, res) => {
   res.send('make your request human');
-  getAllUsers();
 });
 
 mainRouter.get('/login', (req, res) => {
