@@ -1,12 +1,22 @@
 // home (explore) routes
 const express = require('express');
-const { getHomeRecordings } = require('../db/helpers/home');
+const { getHomeRecordings, getHomeCollections } = require('../db/helpers/home');
 const homeRouter = express.Router();
 
 homeRouter.get('', (req, res) => {
+  const homeContent = {
+    collections: [],
+    recordings: [],
+  };
+
   getHomeRecordings()
   .then(rows => {
-    res.send(rows);
+    homeContent.recordings.push(rows);
+    getHomeCollections()
+    .then(rows => {
+      homeContent.collections.push(rows);
+      res.send(homeContent);
+    });
   })
   .catch(err => {
     debugger;
