@@ -3,11 +3,11 @@ const pgPromise = require('pg-promise');
 const promisify = require('util.promisify');
 
 const pgp = pgPromise({}); // Empty object means no additional config required
-const db_user = process.env.POSTGRES_USERx || 'postgres';
-const db_password = process.env.POSTGRES_PASSWORDx || 'postgres';
-const db_name = process.env.POSTGRES_DBx || 'aloud_local';
-const db_host =  'localhost';
-// const db_host = `/cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}` || 'localhost';
+const db_user = process.env.POSTGRES_USER || 'postgres';
+const db_password = process.env.POSTGRES_PASSWORD || 'postgres';
+const db_name = process.env.POSTGRES_DB || 'local_aloud';
+// const db_host =  'localhost';
+const db_host = `/cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}` || 'localhost';
 
 const config = {
   user: db_user,
