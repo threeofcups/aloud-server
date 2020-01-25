@@ -4,17 +4,17 @@ const { getHomeRecordings, getHomeCollections } = require('../db/helpers/home');
 const homeRouter = express.Router();
 
 homeRouter.get('', (req, res) => {
-  const homeContent = {
+  const homeContent = [{
     collections: [],
     recordings: [],
-  };
+  }];
 
   getHomeRecordings()
   .then(rows => {
-    homeContent.recordings.push(rows);
+    homeContent[0].recordings = rows;
     getHomeCollections()
     .then(rows => {
-      homeContent.collections.push(rows);
+      homeContent[0].collections = rows;
       res.send(homeContent);
     });
   })
