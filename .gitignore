@@ -2,3 +2,4 @@ node_modules
 app.yaml
 google-cloud-sdk-277.0.0-linux-x86.tar.gz
 cloud_sql_proxy
+.env
