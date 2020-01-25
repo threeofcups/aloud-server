@@ -27,10 +27,10 @@ const stageLibraryContent = async (userId) => {
     const collectionSQL = `SELECT *, u.username FROM collections JOIN users AS u ON u.id = id_user_creator WHERE id_user_creator != ${userId}`;
     const recordingSQL = `SELECT *, u.username FROM recordings JOIN users AS u ON u.id = id_user WHERE id_user != ${userId}`;
 
-    const content = {
+    const content = [{
       collections: await db.query(collectionSQL),
       recordings: await db.query(recordingSQL)
-    }
+    }]
 
     return content;
   };
