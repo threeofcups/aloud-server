@@ -1,10 +1,27 @@
 //recording routes
 const express = require('express');
-const { saveRecording } = require('../db/helpers/recording');
+const { saveRecording, saveToCollection } = require('../db/helpers/recording');
 const recordingRouter = express.Router();
 
-recordingRouter.get('/', (req, res) => {
-  res.send('reccy reccy reccy');
+recordingRouter.post('/:collectionId', (req, res) => {
+  const { collectionId } = req.params;
+  const { recordingId } = req.body;
+
+  /*incoming body example
+  * {
+  *  "recordingId": "4"
+  * }
+  */
+ 
+  saveToCollection(collectionId, recordingId)
+  .then(success => {
+    res.sendStatus(201);
+  })
+  .catch(err => {
+    console.error(err);
+    res.sendStatus(404);
+  });
+
 });
 
 recordingRouter.post('/save', (req, res) => {
