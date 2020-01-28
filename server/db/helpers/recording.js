@@ -20,8 +20,7 @@ const saveRecording = (recordingBody) => {
 };
 
 const saveToCollection = (collectionId, recordingId) => {
-  //will need a collectionId and a recordingId 
-  //will post to collections_recording recordingId and collectionId
+  
   const recordingToCollection = `INSERT INTO collections_recordings(id_collection, id_recording) VALUES('${collectionId}', '${recordingId}')`;
   return db.query(recordingToCollection);
 }; 
