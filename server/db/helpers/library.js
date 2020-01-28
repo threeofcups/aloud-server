@@ -40,4 +40,17 @@ const getAllLibraryContent = (userId) => {
   return content;
 };
 
+const saveRecordingLibrary = (userId, recordingId) => {
+  const saveRecordingSQL = `INSERT INTO users_saved_recordings(id_user, id_recording, created_at) VALUES('${userId}', '${recordingId}', now())`;
+  return db.query(saveRecordingSQL);
+};
+
+const saveCollectionLibrary = (userId, collectionId) => {
+  const saveCollectionSQL = `INSERT INTO users_saved_collections(id_user, id_collection, created_at) VALUES('${userId}', '${collectionId}', now())`;
+  return db.query(saveCollectionSQL);
+};
+
+
 module.exports.getAllLibraryContent = getAllLibraryContent;
+module.exports.saveRecordingLibrary = saveRecordingLibrary;
+module.exports.saveCollectionLibrary = saveCollectionLibrary;
