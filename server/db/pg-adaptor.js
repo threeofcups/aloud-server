@@ -7,7 +7,7 @@ const db_user = process.env.POSTGRES_USER || 'postgres';
 const db_password = process.env.POSTGRES_PASSWORD || 'postgres';
 const db_name = process.env.POSTGRES_DB || 'local_aloud';
 // const db_host =  'localhost';
-const db_host = `/cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}` || 'localhost';
+const db_host = '34.68.233.89' || `/cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}` || 'localhost';
 
 const config = {
   user: db_user,
