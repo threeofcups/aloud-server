@@ -15,6 +15,7 @@ const mainRouter = require('./routes/main');
 const libraryRouter = require('./routes/library');
 const profileRouter = require('./routes/profile');
 const recordingRouter = require('./routes/recording');
+const collectionRouter = require('./routes/collection');
 
 const app = express();
 const CLIENT_PATH = path.join(__dirname, '../client/dist/');
@@ -27,6 +28,7 @@ app.use('/', mainRouter);
 app.use('/home', homeRouter);
 app.use('/profile', profileRouter);
 app.use('/recording', recordingRouter);
+app.use('/collection', collectionRouter);
 app.use('/library', libraryRouter);
 
 //visualizer instance
