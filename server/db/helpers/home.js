@@ -11,6 +11,8 @@ const getHomeRecordings = () => {
   return db.query(recordingSQL);
 };
 
+//recently played query function (will need schema additions)
+//home will not need posts
 
 module.exports.getHomeCollections = getHomeCollections;
 module.exports.getHomeRecordings = getHomeRecordings;
