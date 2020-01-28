@@ -40,4 +40,7 @@ const getAllLibraryContent = (userId) => {
   return content;
 };
 
+//query to save a recording to a library (users_saved)
+//query to save a collection to a library (users_saved)
+
 module.exports.getAllLibraryContent = getAllLibraryContent;
