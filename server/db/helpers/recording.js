@@ -19,5 +19,13 @@ const saveRecording = (recordingBody) => {
   // will also need to save to collection if collection was chosen at time of creation
 };
 
+const saveToCollection = (collectionId, recordingId) => {
+  //will need a collectionId and a recordingId 
+  //will post to collections_recording recordingId and collectionId
+  const recordingToCollection = `INSERT INTO collections_recordings(id_collection, id_recording) VALUES('${collectionId}', '${recordingId}')`;
+  return db.query(recordingToCollection);
+}; 
+
 
 module.exports.saveRecording = saveRecording;
+module.exports.saveToCollection = saveToCollection;
