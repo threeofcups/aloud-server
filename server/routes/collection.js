@@ -1,10 +1,20 @@
 //recording routes
 const express = require('express');
-const { saveCollection } = require('../db/helpers/collection');
+const { saveCollection, getCollectionRecordings } = require('../db/helpers/collection');
 const collectionRouter = express.Router();
 
-collectionRouter.get('/', (req, res) => {
-  res.send('collections');
+collectionRouter.get('/:collectionId', (req, res) => {
+  const { collectionId } = req.params;
+
+  getCollectionRecordings(collectionId)
+  .then(rows => {
+    res.send(rows);
+  })
+  .catch(err => {
+    console.error(err);
+    res.sendStatus(404);
+  })
+
 });
 
 collectionRouter.post('/save', (req, res) => {
