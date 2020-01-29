@@ -3,21 +3,25 @@
 -- delete in production
 ALTER USER postgres with encrypted password 'postgres';
 
-DROP DATABASE IF EXISTS local_aloud;
-CREATE DATABASE local_aloud;
-\c local_aloud;
+DROP DATABASE IF EXISTS localhost_aloud;
+CREATE DATABASE localhost_aloud;
+\c localhost_aloud;
 
+DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
   id INT GENERATED ALWAYS AS IDENTITY,
-  username VARCHAR(50) NOT NULL,
-  password CHAR(50),
-  email VARCHAR(50) NOT NULL,
-  name_display VARCHAR(64),
-  bio TEXT,
+  id_google TEXT NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  name_family VARCHAR(50) NOT NULL,
+  name_first VARCHAR(50) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  username VARCHAR(50) NOT NULL UNIQUE,
   url_image TEXT,
+  bio TEXT,
   PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS recordings CASCADE;
 CREATE TYPE setting AS ENUM('private', 'public');
 CREATE TABLE recordings (
   id INT GENERATED ALWAYS AS IDENTITY,
@@ -31,6 +35,7 @@ CREATE TABLE recordings (
   PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS collections CASCADE;
 CREATE TABLE collections (
   id INT GENERATED ALWAYS AS IDENTITY,
   id_user_creator INT references users(id),
@@ -42,11 +47,13 @@ CREATE TABLE collections (
   PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS collections_recordings CASCADE;
 CREATE TABLE collections_recordings (
   id_collection INT references collections(id),
   id_recording INT references recordings(id)
 );
 
+DROP TABLE IF EXISTS users_saved_collections CASCADE;
 CREATE TABLE users_saved_collections (
   id INT GENERATED ALWAYS AS IDENTITY,
   id_user INT references users(id),
@@ -54,6 +61,7 @@ CREATE TABLE users_saved_collections (
   created_at TIMESTAMP NOT NULL
 );
 
+DROP TABLE IF EXISTS users_saved_recordings CASCADE;
 CREATE TABLE users_saved_recordings (
   id INT GENERATED ALWAYS AS IDENTITY,
   id_user INT references users(id),
