@@ -1,16 +1,29 @@
 //user routes
 const express = require('express');
-const { saveNewUser } = require('../db/helpers/users');
+const { saveNewUser, getUserId } = require('../db/helpers/users');
 const usersRouter = express.Router();
 
 usersRouter.get('/login/:googleId', (req, res) => {
+  //incoming parameter example
+  // 111595094517834967132
   const { googleId } = req.params;
 
-  //query to get userId from googleId for queries throughout the app
-  //userId should be added to global context
-  //requests should be made with this, not with the googleId
+  //expected response
+  // [
+  //   {
+  //     "id": 1
+  //   }
+  // ]
 
-  
+  getUserId(googleId)
+  .then(userIdRows => {
+    res.send(userIdRows);
+  })
+  .catch(err => {
+    console.error(err);
+    res.sendStatus(404);
+  })
+
 
 });
 
@@ -35,7 +48,6 @@ usersRouter.post('/signup', (req, res) => {
 
   saveNewUser(user)
     .then(success => {
-      debugger;
       res.sendStatus(201);
     })
     .catch(err => {
