@@ -1,10 +1,17 @@
-const {query} = require('../../db/pg-adaptor');
+const {db} = require('../../db/pg-adaptor');
 
-const getAllUsers = () => {
-  return query('select * from users;').then(console.log(`
-  1. working database collection
-  2. working query export called from main route
-  `));
+const saveNewUser = (userObject) => {
+  const { id, name, email, familyName, givenName, photoUrl } = userObject;
+  const username = email.replace('@gmail.com', '');
+  debugger;
+  //default bio
+  const bio = ' ';
+
+  const insertUser = `INSERT INTO users(id_google, email, name_family, name_first, name, username, url_image, bio) VALUES('${id}', '${email}', '${familyName}', '${givenName}', '${name}', '${username}', '${photoUrl}', '${bio}')`;
+  return db.query(insertUser);
 };
 
-module.exports.getAllUsers = getAllUsers;
+//will need a patch user for profile page
+//image, bio, name, username
+
+module.exports.saveNewUser = saveNewUser;
