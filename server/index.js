@@ -10,8 +10,9 @@ const PORT = process.env.PORT || 3000;
 const { middleware, visualizer } = require('express-routes-visualizer');
 
 //routes
-const homeRouter = require('./routes/home');
 const mainRouter = require('./routes/main');
+const usersRouter = require('./routes/users');
+const homeRouter = require('./routes/home');
 const libraryRouter = require('./routes/library');
 const profileRouter = require('./routes/profile');
 const recordingRouter = require('./routes/recording');
@@ -25,6 +26,7 @@ app.use(express.static(CLIENT_PATH));
 
 
 app.use('/', mainRouter);
+app.use('/user', usersRouter);
 app.use('/home', homeRouter);
 app.use('/profile', profileRouter);
 app.use('/recording', recordingRouter);
