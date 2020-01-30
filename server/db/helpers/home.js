@@ -2,12 +2,12 @@ const { db } = require('../../db/pg-adaptor');
 
 
 const getHomeCollections = () => {
-  const collectionSQL = `SELECT collections.id, username, name_display, title, description, count_recordings, collections.url_image, created_at FROM collections JOIN users ON users.id = collections.id_user_creator`;
+  const collectionSQL = `SELECT collections.id, username, name, title, description, count_recordings, collections.url_image, created_at FROM collections JOIN users ON users.id = collections.id_user_creator`;
   return db.query(collectionSQL);
 };
 
 const getHomeRecordings = () => {
-  const recordingSQL = `SELECT recordings.id, username, name_display, title, description, url_recording, speech_to_text, created_at FROM recordings JOIN users ON users.id = recordings.id_user WHERE published = 'public'`;
+  const recordingSQL = `SELECT recordings.id, username, name, title, description, url_recording, speech_to_text, created_at FROM recordings JOIN users ON users.id = recordings.id_user WHERE published = 'public'`;
   return db.query(recordingSQL);
 };
 
