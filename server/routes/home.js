@@ -3,16 +3,18 @@ const express = require('express');
 const { getHomeRecordings, getHomeCollections } = require('../db/helpers/home');
 const homeRouter = express.Router();
 
-homeRouter.get('', (req, res) => {
+homeRouter.get('/:userId', (req, res) => {
+  const { userId } = req.params;
+
   const homeContent = [{
     collections: [],
     recordings: [],
   }];
 
-  getHomeRecordings()
+  getHomeRecordings(userId)
   .then(rows => {
     homeContent[0].recordings = rows;
-    getHomeCollections()
+    getHomeCollections(userId)
     .then(rows => {
       homeContent[0].collections = rows;
       res.send(homeContent);
