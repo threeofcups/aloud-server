@@ -24,20 +24,17 @@ recordingRouter.post('/:collectionId', (req, res) => {
 
 });
 
-recordingRouter.post('/save', (req, res) => {
+recordingRouter.post('', (req, res) => {
   const { body } = req;
 
   // {
-  //   "id_user": "1",
-  //     "title": "sample_title",
-  //       "description": "sample_description",
-  //         "url_recording": "cloudinary.mp3",
+  //   "id_user": "3",
+  //     "title": "dust it off",
+  //       "description": "west texas track",
+  //         "url_recording": "https://www.nasa.gov/mp3/581097main_STS-1_Dust-it-Off.mp3",
   //           "published": "public",
-  //             "speech_to_text": "sample sample sample",
+  //             "speech_to_text": "a pink cloud"
   // }
-
-  // body;
-  // debugger;
 
   saveRecording(body)
   .then(success => {

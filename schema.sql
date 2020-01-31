@@ -113,7 +113,7 @@ CREATE TABLE users_saved_recordings (
 
 
 -- insert into recordings(id_user, title, description, url_recording, published, speech_to_text, created_at)
--- values('1', 'rock dust', 'permanence of the stars astonishment birth inconspicuous motes of rock and gas globular star cluster', 'https://space.physics.uiowa.edu/juno/audio/201608/jno-bkom-16-240.mp3', 'public', 'retsulc rats ralubolg sag dna kcor fo setom suoucipsnocni htrib tnemhsinotsa srats eht fo ecnenamrep', now());
+-- values('1', 'rock dust', 'permanence of the stars astonishment birth inconspicuous motes of rock and gas globular star cluster', 'http://tng.trekcore.com/audio/audio/Opening%20Credits%20Season%201.mp3', 'public', 'retsulc rats ralubolg sag dna kcor fo setom suoucipsnocni htrib tnemhsinotsa srats eht fo ecnenamrep', now());
 -- insert into recordings(id_user, title, description, url_recording, published, speech_to_text, created_at)
 -- values('1', 'rover town', 'tendrils of gossamer clouds a still more glorious dawn', 'https://retired.sounddogs.com/previews/36/mp3/294637_SOUNDDOGS__st.mp3', 'public', 'retsulc rats ralubolg sag dna kcor fo setom suoucipsnocni htrib tnemhsinotsa srats eht fo ecnenamrep', now());
 -- insert into recordings(id_user, title, description, url_recording, published, speech_to_text, created_at)
