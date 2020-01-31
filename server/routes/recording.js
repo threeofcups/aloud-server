@@ -24,7 +24,7 @@ recordingRouter.post('/:collectionId', (req, res) => {
 
 });
 
-recordingRouter.post('/save', (req, res) => {
+recordingRouter.post('', (req, res) => {
   const { body } = req;
 
   // {
@@ -33,7 +33,7 @@ recordingRouter.post('/save', (req, res) => {
   //       "description": "sample_description",
   //         "url_recording": "cloudinary.mp3",
   //           "published": "public",
-  //             "speech_to_text": "sample sample sample",
+  //             "speech_to_text": "sample sample sample"
   // }
 
   // body;
