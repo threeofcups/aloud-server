@@ -10,16 +10,20 @@ const stageLibraryContent = async (userId) => {
       recordingIds: await db.query(recordingSQL)
     };
 
+    ids.collectionIds = ids.collectionIds.map(id => {return id.id_collection});
+    ids.recordingIds = ids.recordingIds.map(id => {return id.id_recording});
+
     return ids;
   };
 
+
   const stageContent = async(ids, userId) => {
-    const collectionSQL = `SELECT c.id, title, description, count_recordings, c.url_image, c.created_at, u.username FROM collections as c JOIN users AS u ON u.id = id_user_creator WHERE id_user_creator != ${userId}`;
-    const recordingSQL = `SELECT r.id, title, description, url_recording, speech_to_text, r.created_at, u.username FROM recordings as r JOIN users AS u ON u.id = id_user WHERE id_user != ${userId}`;
+    const collectionSQL = `SELECT c.id, title, description, count_recordings, c.url_image, c.created_at, u.username FROM collections as c JOIN users AS u ON u.id = id_user_creator WHERE id_user_creator != ${userId} AND c.id = ANY($1::int[])`;
+    const recordingSQL = `SELECT r.id, title, description, url_recording, speech_to_text, r.created_at, u.username FROM recordings as r JOIN users AS u ON u.id = id_user WHERE id_user != ${userId} AND r.id = ANY($1::int[])`;
 
     const content = [{
-      collections: await db.query(collectionSQL),
-      recordings: await db.query(recordingSQL)
+      collections: await db.query(collectionSQL, [ids.collectionIds]),
+      recordings: await db.query(recordingSQL, [ids.recordingIds])
     }]
 
     return content;
@@ -30,6 +34,7 @@ const stageLibraryContent = async (userId) => {
     return stageContent(ids, userId);
   })
   .catch(err => {
+    console.error(err);
     debugger;
   })
 
