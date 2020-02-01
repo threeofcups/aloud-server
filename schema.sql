@@ -110,6 +110,16 @@ CREATE TABLE users_saved_recordings (
 -- values('1', 'jupiter scapes', 'jupiter storm recordings', '0', 'https://photojournal.jpl.nasa.gov/jpeg/PIA22946.jpg', now());
 -- insert into collections(id_user_creator, title, description, count_recordings, url_image, created_at) 
 -- values('2', 'io sonnets', 'recordings of original Galilean moon sonnets', '0', 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Io_highest_resolution_true_color.jpg', now());
+-- insert into collections(id_user_creator, title, description, count_recordings, url_image, created_at) 
+-- values('4', 'hamlet', 'recorded at dungeness', '0', 'https://i.guim.co.uk/img/media/61fa063d4d92251f8e6ee778b31ecb42c295b46b/0_407_5973_3585/master/5973.jpg?width=300&quality=85&auto=format&fit=max&s=65d8eb2b12936809275e3f1826237fbe', now());
+-- insert into collections(id_user_creator, title, description, count_recordings, url_image, created_at) 
+-- values('4', 'macbeth', 'recorded at dungeness', '0', 'https://cdn1.thr.com/sites/default/files/2014/05/ian_mckellen_robotic_a_p.jpg', now());
+-- insert into collections(id_user_creator, title, description, count_recordings, url_image, created_at) 
+-- values('3', 'dogs', 'dogs barking and some poems', '0', 'https://d32dm0rphc51dk.cloudfront.net/BWK5HM33_conBwyrszk99w/large.jpg', now());
+-- insert into collections(id_user_creator, title, description, count_recordings, url_image, created_at) 
+-- values('7', 'mac and cheese', 'blue bowl dinner table discussion on the moon', '0', 'https://upload.wikimedia.org/wikipedia/commons/0/04/Le_Voyage_dans_la_lune.jpg', now());
+-- insert into collections(id_user_creator, title, description, count_recordings, url_image, created_at) 
+-- values('3', 'idea', 'ironic', '0', 'https://www.rene-magritte.com/Clear%20Ideas%20Rene%20Magritte.jpg', now());
 
 
 -- insert into recordings(id_user, title, description, url_recording, published, speech_to_text, created_at)
