@@ -1,5 +1,10 @@
 const { db } = require('../../db/pg-adaptor');
 
+const retrieveRecordingObjects = () => {
+  const allRecordings = `SELECT recordings.id, username, name, title, description, url_recording, speech_to_text, created_at FROM recordings JOIN users ON users.id = recordings.id_user WHERE published = 'public'`;
+  return db.query(allRecordings);
+};
+
 const saveRecording = (recordingBody) => {
   // destructure body
   const {
@@ -28,3 +33,4 @@ const saveToCollection = (collectionId, recordingId) => {
 
 module.exports.saveRecording = saveRecording;
 module.exports.saveToCollection = saveToCollection;
+module.exports.retrieveRecordingObjects = retrieveRecordingObjects;
