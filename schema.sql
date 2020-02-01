@@ -139,7 +139,6 @@ CREATE TABLE users_saved_recordings (
 
 
 
--- insert into collections_recordings(id_collection, id_recording) values('1', '1');
 -- insert into collections_recordings(id_collection, id_recording) values('1', '2');
 -- insert into collections_recordings(id_collection, id_recording) values('1', '2');
 -- insert into collections_recordings(id_collection, id_recording) values('1', '4');
