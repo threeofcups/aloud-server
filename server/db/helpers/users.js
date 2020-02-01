@@ -1,5 +1,9 @@
 const {db} = require('../../db/pg-adaptor');
 
+const getAllUsers = () => {
+  const getUsers = `SELECT * FROM users`;
+  return db.query(getUsers);
+}
 
   //query to get userId from googleId for queries throughout the app
   //userId should be added to global context
@@ -24,3 +28,4 @@ const saveNewUser = (userObject) => {
 
 module.exports.saveNewUser = saveNewUser;
 module.exports.getUserId = getUserId;
+module.exports.getAllUsers = getAllUsers;
