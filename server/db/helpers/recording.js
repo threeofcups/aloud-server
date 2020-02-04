@@ -1,7 +1,7 @@
 const { db } = require('../../db/pg-adaptor');
 
 const retrieveRecordingObjects = () => {
-  const allRecordings = `SELECT recordings.id, username, name, title, description, url_recording, speech_to_text, created_at FROM recordings JOIN users ON users.id = recordings.id_user WHERE published = 'public'`;
+  const allRecordings = `SELECT recordings.id, id_user, username, name, title, description, url_recording, speech_to_text, created_at FROM recordings JOIN users ON users.id = recordings.id_user WHERE published = 'public'`;
   return db.query(allRecordings);
 };
 
