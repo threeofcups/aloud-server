@@ -1,5 +1,6 @@
 const { db } = require('../../db/pg-adaptor');
 
+//add id_user_creator
 const retrieveCollectionObjects = () => {
   const allCollections = `SELECT collections.id, username, name, title, description, count_recordings, collections.url_image, created_at FROM collections JOIN users ON users.id = collections.id_user_creator`;
   return db.query(allCollections);
@@ -20,8 +21,9 @@ const saveCollection = (collectionBody) => {
 };
  
 //get all recordings info that belong to a collection
+//add id_user
 const getCollectionRecordings = (collectionId) => {
-  const joinSQL = `SELECT * FROM collections_recordings JOIN recordings as r ON id_recording = r.id WHERE id_collection = ${collectionId}`;
+  const joinSQL = `SELECT *, r.id_user FROM collections_recordings JOIN recordings as r ON id_recording = r.id WHERE id_collection = ${collectionId}`;
   return db.query(joinSQL);
 }
 
