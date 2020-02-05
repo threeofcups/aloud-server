@@ -23,7 +23,7 @@ const saveCollection = (collectionBody) => {
 //get all recordings info that belong to a collection
 //add id_user
 const getCollectionRecordings = (collectionId) => {
-  const joinSQL = `SELECT *, r.id_user FROM collections_recordings JOIN recordings as r ON id_recording = r.id WHERE id_collection = ${collectionId}`;
+  const joinSQL = `SELECT *, username FROM collections_recordings JOIN recordings as r ON id_recording = r.id JOIN collections AS c ON id_collection = c.id JOIN users AS u ON id_user_creator = u.id WHERE id_collection = ${collectionId}`;
   return db.query(joinSQL);
 }
 
