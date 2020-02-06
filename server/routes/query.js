@@ -29,20 +29,6 @@ queryRouter.post('/:query', (req, res) => {
 
 });
 
-// queryRouter.get('/:query', (req, res) => {
-//   const { query } = req.params;
-
-//   retrieveCollectionObjects()
-//     .then(objs => {
-//       res.send(objs);
-//     })
-//     .catch(err => {
-//       console.error(err);
-//       debugger;
-//       res.sendStatus(404);
-//     });
-
-// });
 
 module.exports = queryRouter;
 
