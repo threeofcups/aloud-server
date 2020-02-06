@@ -31,13 +31,3 @@ queryRouter.post('/:query', (req, res) => {
 
 
 module.exports = queryRouter;
-
-
-//pseudocode search by recording AND collection
-//make a fuser for recordings and for collections
-//call recording fuser and then collection fuser
-//send back an object with recording results and collection results
-//asign the recording results to the recording hook variable
-//the collection results to the collection hook variable
-//if the recording and collection results are null or search error -> return 'try again' response and...
-  //show the default recordings and collections (don't show defaults if one comes back with responses)
