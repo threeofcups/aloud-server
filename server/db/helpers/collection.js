@@ -8,7 +8,7 @@ const retrieveCollectionObjects = () => {
 
 const saveCollection = (collectionBody) => {
   // insert into collections(id_user_creator, title, description, count_recordings, url_image, created_at) values('1', 'io sonnets', 'recordings of original Galilean moon sonnets', '0', 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Io_highest_resolution_true_color.jpg', now());
-  
+
   const {
     id_user_creator,
     title, 
@@ -23,7 +23,7 @@ const saveCollection = (collectionBody) => {
 //get all recordings info that belong to a collection
 //add id_user
 const getCollectionRecordings = (collectionId) => {
-  const joinSQL = `SELECT *, username FROM collections_recordings JOIN recordings as r ON id_recording = r.id JOIN collections AS c ON id_collection = c.id JOIN users AS u ON id_user_creator = u.id WHERE id_collection = ${collectionId}`;
+  const joinSQL = `SELECT id_collection, id_recording, username, r.title, r.description, r.url_recording, r.created_at, r.id_user FROM collections_recordings JOIN recordings as r ON id_recording = r.id JOIN collections AS c ON id_collection = c.id JOIN users AS u ON id_user_creator = u.id WHERE id_collection = ${collectionId}`;
   return db.query(joinSQL);
 }
 
